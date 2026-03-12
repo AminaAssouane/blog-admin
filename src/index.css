@@ -9,5 +9,19 @@
   margin: 0;
 }
 
+#root {
+  font-family: "Raleway";
+  background-color: var(--color-background);
+  color: var(--color-primary);
+}
+
 :root {
+  --color-background: #282429;
+  --color-border: #4d5258;
+  --color-primary: #e6e7e6;
+  --color-secondary: #955eb4;
+}
+
+.violet {
+  color: var(--color-primary);
 }
