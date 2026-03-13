@@ -9,13 +9,18 @@ import { Dashboard } from "./components/Dashboard/Dashboard.jsx";
 import { AllPosts } from "./components/Dashboard/AllPosts/AllPosts.jsx";
 import { PublishedPosts } from "./components/Dashboard/PublishedPosts/PublishedPosts.jsx";
 import { UnpublishedPosts } from "./components/Dashboard/UnpublishedPosts/UnpublishedPosts.jsx";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 
 const router = createBrowserRouter([
   { path: "/login", element: <Login /> },
 
   {
     path: "/",
-    element: <Dashboard />,
+    element: (
+      <ProtectedRoute>
+        <Dashboard />
+      </ProtectedRoute>
+    ),
     children: [
       { index: true, element: <AllPosts /> },
       { path: "publishedposts", element: <PublishedPosts /> },

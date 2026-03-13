@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
 export function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -18,6 +21,7 @@ export function Login() {
       const data = await response.json;
       localStorage.setItem("token", data.token);
       console.log("Logged in!");
+      navigate("/");
     } catch (error) {
       console.error(error);
     }
