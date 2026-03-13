@@ -15,10 +15,10 @@ export function Navbar({ className }) {
               <Link to="/">All</Link>
             </li>
             <li>
-              <Link to="posts/">Published posts</Link>
+              <Link to="/publishedposts">Published posts</Link>
             </li>
             <li>
-              <Link to="posts/unpublished">Unpublished posts</Link>
+              <Link to="/unpublishedposts">Unpublished posts</Link>
             </li>
           </ul>
         </nav>
