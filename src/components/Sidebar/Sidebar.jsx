@@ -1,10 +1,12 @@
-export function Sidebar() {
+import styles from "./Sidebar.module.css";
+
+export function Sidebar({ className }) {
   return (
-    <nav>
-      <ul>
+    <aside className={className}>
+      <ul className={styles.sideBar}>
         <li>Create post</li>
         <li>Logout</li>
       </ul>
-    </nav>
+    </aside>
   );
 }

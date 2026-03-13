@@ -25,3 +25,7 @@
 .violet {
   color: var(--color-secondary);
 }
+
+ul {
+  list-style-type: none;
+}

@@ -1,0 +1,22 @@
+.container {
+  display: grid;
+  grid-template-areas:
+    "navBar sideBar"
+    "main sideBar";
+  grid-template-columns: 1fr 300px;
+  grid-template-rows: auto 1fr;
+  padding: 50px;
+  gap: 20px;
+}
+
+.navBar {
+  grid-area: navBar;
+}
+
+.sideBar {
+  grid-area: sideBar;
+}
+
+.main {
+  grid-area: main;
+}

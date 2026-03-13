@@ -1,0 +1,15 @@
+.headerWrapper {
+  padding: 0px 50px;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
