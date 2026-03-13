@@ -1,3 +1,10 @@
 export function Sidebar() {
-  return <div>Sidebar</div>;
+  return (
+    <nav>
+      <ul>
+        <li>Create post</li>
+        <li>Logout</li>
+      </ul>
+    </nav>
+  );
 }

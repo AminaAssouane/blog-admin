@@ -1,3 +1,4 @@
+import styles from "./Login.module.css";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
@@ -29,9 +30,9 @@ export function Login() {
 
   return (
     <>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <fieldset>
+      <main>
+        <h1>Login</h1>
+        <form onSubmit={handleSubmit}>
           <label htmlFor="username">Username : </label>
           <input
             type="text"
@@ -54,8 +55,8 @@ export function Login() {
             required
           />
           <button type="submit">Login</button>
-        </fieldset>
-      </form>
+        </form>
+      </main>
     </>
   );
 }
