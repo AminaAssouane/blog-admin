@@ -18,7 +18,6 @@ export function AllPosts() {
         console.error("Failed to fetch posts : ", error);
       }
     }
-    console.log(localStorage.getItem("token"));
     fetchAllPosts();
   }, []);
 
@@ -26,7 +25,7 @@ export function AllPosts() {
     <>
       <h1>All Posts</h1>
       {posts.map((post) => (
-        <div>{post.title}</div>
+        <div key={post.id}>{post.title}</div>
       ))}
     </>
   );

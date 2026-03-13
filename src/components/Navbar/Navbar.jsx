@@ -1,4 +1,5 @@
 import styles from "./Navbar.module.css";
+import { Link } from "react-router";
 
 export function Navbar({ className }) {
   return (
@@ -10,9 +11,15 @@ export function Navbar({ className }) {
         </header>
         <nav>
           <ul className={styles.navBar}>
-            <li>All</li>
-            <li>Published posts</li>
-            <li>Unpublished posts</li>
+            <li>
+              <Link to="/">All</Link>
+            </li>
+            <li>
+              <Link to="posts/">Published posts</Link>
+            </li>
+            <li>
+              <Link to="posts/unpublished">Unpublished posts</Link>
+            </li>
           </ul>
         </nav>
       </section>
