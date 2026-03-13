@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { togglePublish } from "../../../utils/useTogglePublish";
 
 export function PublishedPosts() {
   const [posts, setPosts] = useState([]);
@@ -25,7 +26,12 @@ export function PublishedPosts() {
     <>
       <h1>Published Posts</h1>
       {posts.map((post) => (
-        <div key={post.id}>{post.title}</div>
+        <div key={post.id}>
+          <div>{post.title}</div>
+          <button onClick={() => togglePublish(post, setPosts)}>
+            {post.published ? "Unpublish" : "Publish"}
+          </button>
+        </div>
       ))}
     </>
   );
