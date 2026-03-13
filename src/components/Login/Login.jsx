@@ -19,7 +19,7 @@ export function Login() {
 
       if (!response.ok) throw Error;
 
-      const data = await response.json;
+      const data = await response.json();
       localStorage.setItem("token", data.token);
       console.log("Logged in!");
       navigate("/");
