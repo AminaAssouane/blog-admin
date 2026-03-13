@@ -1,4 +1,4 @@
-export async function togglePublish(post, setPosts) {
+export async function togglePublish(post, setPosts, all) {
   try {
     // Updating the backend
     const response = await fetch(`http://localhost:3000/posts/${post.id}`, {
@@ -13,11 +13,13 @@ export async function togglePublish(post, setPosts) {
     if (!response.ok) throw new Error("Failed to update post");
 
     // Updating the frontend
-    setPosts((prevPosts) =>
-      prevPosts.map((p) =>
-        p.id === post.id ? { ...p, published: !p.published } : p,
-      ),
-    );
+    if (all)
+      setPosts((prevPosts) =>
+        prevPosts.map((p) =>
+          p.id === post.id ? { ...p, published: !p.published } : p,
+        ),
+      );
+    else setPosts((prevPosts) => prevPosts.filter((p) => p.id !== post.id));
   } catch (error) {
     console.error("Toggle publish failed : ", error);
   }
