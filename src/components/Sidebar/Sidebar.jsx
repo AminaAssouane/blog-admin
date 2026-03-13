@@ -1,5 +1,6 @@
 import styles from "./Sidebar.module.css";
 import { useNavigate } from "react-router";
+import { Link } from "react-router";
 
 export function Sidebar({ className }) {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ export function Sidebar({ className }) {
   return (
     <aside className={className}>
       <ul className={styles.sideBar}>
-        <li>Create post</li>
+        <Link to="createpost">Create post</Link>
         <li onClick={handleLogout}>Logout</li>
       </ul>
     </aside>
