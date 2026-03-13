@@ -2,6 +2,11 @@
   padding: 200px 100px;
 }
 
-li {
+.sideBar li {
   margin-bottom: 50px;
+  cursor: pointer;
+}
+
+.sideBar li:hover {
+  text-decoration: underline;
 }

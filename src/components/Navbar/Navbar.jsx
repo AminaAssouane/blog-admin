@@ -1,13 +1,21 @@
 import styles from "./Navbar.module.css";
 import { Link } from "react-router";
+import logo from "../../assets/icons/logo.svg";
 
 export function Navbar({ className }) {
   return (
     <>
       <section className={`${styles.headerWrapper} ${className}`}>
         <header className={styles.header}>
-          <h1>Amina's blog</h1>
-          <div>Welcome, admin!</div>
+          <h1 className={styles.title}>
+            <img src={logo} alt="logo" className={styles.logo} />
+            <div>
+              Amina's <span className="violet">blog</span>
+            </div>
+          </h1>
+          <div>
+            Welcome, <span className="violet">admin</span>!
+          </div>
         </header>
         <nav>
           <ul className={styles.navBar}>

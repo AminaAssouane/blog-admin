@@ -1,11 +1,22 @@
 .headerWrapper {
   padding: 0px 50px;
 }
+
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 50px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  height: 40px;
 }
 
 .navBar {
