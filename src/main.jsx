@@ -11,6 +11,7 @@ import { PublishedPosts } from "./components/Dashboard/PublishedPosts/PublishedP
 import { UnpublishedPosts } from "./components/Dashboard/UnpublishedPosts/UnpublishedPosts.jsx";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { CreatePost } from "./components/Dashboard/CreatePost/CreatePost.jsx";
+import { Post } from "./components/Dashboard/Post/Post.jsx";
 
 const router = createBrowserRouter([
   { path: "/login", element: <Login /> },
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
       { path: "publishedposts", element: <PublishedPosts /> },
       { path: "unpublishedposts", element: <UnpublishedPosts /> },
       { path: "createpost", element: <CreatePost /> },
+      { path: "posts/:postId", element: <Post /> },
     ],
   },
 ]);

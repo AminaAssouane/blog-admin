@@ -1,0 +1,29 @@
+import styles from "./Post.module.css";
+import { useParams } from "react-router";
+import { useState, useEffect } from "react";
+
+export function Post() {
+  const { postId } = useParams();
+  const [post, setPost] = useState("");
+
+  useEffect(() => {
+    async function fetchPost() {
+      try {
+        const response = await fetch(`http://localhost:3000/posts/${postId}`);
+        if (!response.ok) throw new Error("Couldn't fetch the post");
+        const data = await response.json();
+        setPost(data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchPost();
+  }, [postId]);
+
+  return (
+    <article>
+      <h3>{post.title}</h3>
+      <div dangerouslySetInnerHTML={{ __html: post.content }} />
+    </article>
+  );
+}

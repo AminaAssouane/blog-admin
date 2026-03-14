@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { togglePublish } from "../../../utils/togglePublish";
+import { Link } from "react-router";
 
 export function AllPosts() {
   const [posts, setPosts] = useState([]);
+
   useEffect(() => {
     async function fetchAllPosts() {
       try {
@@ -31,6 +33,9 @@ export function AllPosts() {
           <button onClick={() => togglePublish(post, setPosts, false)}>
             {post.published ? "Unpublish" : "Publish"}
           </button>
+          <Link to={`posts/${post.id}`}>
+            <button>Details</button>
+          </Link>
         </div>
       ))}
     </>

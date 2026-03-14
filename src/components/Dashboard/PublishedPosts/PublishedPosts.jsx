@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { togglePublish } from "../../../utils/togglePublish";
+import { Link } from "react-router";
 
 export function PublishedPosts() {
   const [posts, setPosts] = useState([]);
@@ -31,6 +32,9 @@ export function PublishedPosts() {
           <button onClick={() => togglePublish(post, setPosts, true)}>
             Unpublish
           </button>
+          <Link to={`posts/${post.id}`}>
+            <button>Details</button>
+          </Link>{" "}
         </div>
       ))}
     </>
