@@ -1,7 +1,7 @@
-import styles from "./Post.module.css";
 import { useParams, useNavigate } from "react-router";
 import { useState, useEffect } from "react";
 import { deletePost } from "../../../utils/deletePost";
+import { Comments } from "../Comments/Comments";
 
 export function Post() {
   const { postId } = useParams();
@@ -35,6 +35,7 @@ export function Post() {
       <h3>{post.title}</h3>
       <div dangerouslySetInnerHTML={{ __html: post.content }} />
       <button onClick={handleDelete}>Delete</button>
+      <Comments postId={post.id} />
     </article>
   );
 }
