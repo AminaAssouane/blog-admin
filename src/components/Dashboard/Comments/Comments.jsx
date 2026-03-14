@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { deleteComment } from "../../../utils/deleteComment";
 
 export function Comments({ postId }) {
   const [comments, setComments] = useState([]);
@@ -18,6 +19,15 @@ export function Comments({ postId }) {
     fetchComments();
   }, [postId]);
 
+  async function handleDelete(commentId) {
+    try {
+      await deleteComment(postId, commentId);
+      setComments((prev) => prev.filter((comment) => comment.id !== commentId));
+    } catch (error) {
+      alert("You are not authorized to delete this comment.", error);
+    }
+  }
+
   return (
     <>
       <h1>Comments : {comments.length}</h1>
@@ -25,6 +35,7 @@ export function Comments({ postId }) {
         <section key={comment.id}>
           <div>{comment.username}</div>
           <p>{comment.content}</p>
+          <button onClick={() => handleDelete(comment.id)}>Delete</button>
         </section>
       ))}
     </>
