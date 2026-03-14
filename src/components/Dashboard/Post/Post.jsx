@@ -34,6 +34,7 @@ export function Post() {
     <article>
       <h3>{post.title}</h3>
       <div dangerouslySetInnerHTML={{ __html: post.content }} />
+      <button onClick={() => navigate(`/posts/${post.id}/edit`)}>Edit</button>
       <button onClick={handleDelete}>Delete</button>
       <Comments postId={post.id} />
     </article>
