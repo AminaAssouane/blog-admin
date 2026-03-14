@@ -32,9 +32,9 @@ export function PublishedPosts() {
           <button onClick={() => togglePublish(post, setPosts, true)}>
             Unpublish
           </button>
-          <Link to={`posts/${post.id}`}>
+          <Link to={`/posts/${post.id}`}>
             <button>Details</button>
-          </Link>{" "}
+          </Link>
         </div>
       ))}
     </>

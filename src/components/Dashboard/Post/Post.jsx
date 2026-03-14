@@ -20,6 +20,8 @@ export function Post() {
     fetchPost();
   }, [postId]);
 
+  if (!post) return <h1>Post not found! 404</h1>;
+
   return (
     <article>
       <h3>{post.title}</h3>

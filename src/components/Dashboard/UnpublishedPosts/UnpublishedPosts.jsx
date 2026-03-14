@@ -35,7 +35,7 @@ export function UnpublishedPosts() {
           <button onClick={() => togglePublish(post, setPosts, true)}>
             Publish
           </button>
-          <Link to={`posts/${post.id}`}>
+          <Link to={`/posts/${post.id}`}>
             <button>Details</button>
           </Link>
         </div>
