@@ -1,10 +1,12 @@
 import styles from "./Post.module.css";
-import { useParams } from "react-router";
+import { useParams, useNavigate } from "react-router";
 import { useState, useEffect } from "react";
+import { deletePost } from "../../../utils/deletePost";
 
 export function Post() {
   const { postId } = useParams();
   const [post, setPost] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchPost() {
@@ -22,10 +24,17 @@ export function Post() {
 
   if (!post) return <h1>Post not found! 404</h1>;
 
+  async function handleDelete() {
+    const deleted = await deletePost(postId);
+    if (deleted) navigate("/");
+    else alert("Failed to delete post.");
+  }
+
   return (
     <article>
       <h3>{post.title}</h3>
       <div dangerouslySetInnerHTML={{ __html: post.content }} />
+      <button onClick={handleDelete}>Delete</button>
     </article>
   );
 }
