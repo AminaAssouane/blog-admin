@@ -2,6 +2,7 @@ import styles from "./Dashboard.module.css";
 import { Outlet } from "react-router";
 import { Sidebar } from "../Sidebar/Sidebar.jsx";
 import { Navbar } from "../Navbar/Navbar.jsx";
+import { Footer } from "../Footer/Footer.jsx";
 
 export function Dashboard() {
   return (
@@ -12,6 +13,7 @@ export function Dashboard() {
         <main className={styles.main}>
           <Outlet />
         </main>
+        <Footer className={styles.footer} />
       </div>
     </>
   );

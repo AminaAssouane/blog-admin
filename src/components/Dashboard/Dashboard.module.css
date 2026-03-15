@@ -2,11 +2,10 @@
   display: grid;
   grid-template-areas:
     "navBar sideBar"
-    "main sideBar";
-  grid-template-columns: 1fr 300px;
-  grid-template-rows: auto 1fr;
-  padding: 50px;
-  gap: 20px;
+    "main sideBar"
+    "footer footer";
+  grid-template-columns: 1fr 250px;
+  grid-template-rows: auto auto auto;
 }
 
 .navBar {
@@ -19,4 +18,13 @@
 
 .main {
   grid-area: main;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+.main a {
+  text-decoration: none;
+  font-size: 1rem;
 }

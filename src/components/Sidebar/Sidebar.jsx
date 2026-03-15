@@ -12,7 +12,7 @@ export function Sidebar({ className }) {
     <aside className={className}>
       <ul className={styles.sideBar}>
         <Link to="createpost">Create post</Link>
-        <li onClick={handleLogout}>Logout</li>
+        <button onClick={handleLogout}>Logout</button>
       </ul>
     </aside>
   );

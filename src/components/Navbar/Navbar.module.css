@@ -1,12 +1,13 @@
 .headerWrapper {
-  padding: 0px 50px;
+  padding: 50px;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .title {

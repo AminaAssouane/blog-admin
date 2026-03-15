@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { togglePublish } from "../../../utils/togglePublish";
 import { Link } from "react-router";
+import styles from "./AllPosts.module.css";
 
 export function AllPosts() {
   const [posts, setPosts] = useState([]);
@@ -26,7 +27,7 @@ export function AllPosts() {
 
   return (
     <>
-      <h1>All Posts</h1>
+      <h1 className={styles.header}>All Posts</h1>
       {posts.map((post) => (
         <div key={post.id}>
           <div>{post.title}</div>

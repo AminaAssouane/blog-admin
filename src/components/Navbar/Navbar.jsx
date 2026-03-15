@@ -20,7 +20,7 @@ export function Navbar({ className }) {
         <nav>
           <ul className={styles.navBar}>
             <li>
-              <Link to="/">All</Link>
+              <Link to="/">All posts</Link>
             </li>
             <li>
               <Link to="/publishedposts">Published posts</Link>
