@@ -22,25 +22,34 @@ export function EditPost() {
   });
 
   useEffect(() => {
+    let isMounted = true; // Cleanup flag
     async function fetchPost() {
       try {
         const response = await fetch(`http://localhost:3000/posts/${postId}`);
         if (!response.ok) throw new Error("Failed fetching post");
         const data = await response.json();
-        setPost(data);
-        setTitle(data.title);
-        if (editor && data.content) {
-          editor.commands.setContent(data.content);
+        if (isMounted) {
+          setPost(data);
+          setTitle(data.title);
+
+          // ONLY set content if the editor is empty
+          // This prevents overwriting my changes while I type
+          if (editor && editor.isEmpty && data.content) {
+            editor.commands.setContent(data.content);
+          }
         }
       } catch (error) {
         console.error(error);
       }
     }
     fetchPost();
+    return () => {
+      isMounted = false;
+    };
   }, [postId, editor]);
 
   if (!editor) return <h1>Error uploading the editor</h1>;
-  if (!post) return <h1>Loading...</h1>;
+  if (!post) return <h1>Post not found!</h1>;
 
   async function handleEdit() {
     const html = editor.getHTML();
