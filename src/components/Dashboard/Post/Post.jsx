@@ -40,36 +40,40 @@ export function Post() {
 
   return (
     <div className={styles.postPageMain}>
-      <article className={styles.post}>
-        {post.image && (
-          <div className={styles.image}>
-            <img src={post.image} alt={post.title} />
+      <div className={styles.postWrapper}>
+        <article className={styles.post}>
+          {post.image && (
+            <div className={styles.image}>
+              <img src={post.image} alt={post.title} />
+            </div>
+          )}
+          <div className={styles.info}>
+            <h1 className={styles.title}>{post.title}</h1>
+            <div className={styles.date}>
+              {new Date(post.createdAt).toLocaleDateString("en-GB", {
+                day: "numeric",
+                month: "short",
+                year: "numeric",
+              })}
+            </div>
           </div>
-        )}
-        <h1 className={styles.title}>{post.title}</h1>
-        <div className={styles.date}>
-          {new Date(post.createdAt).toLocaleDateString("en-GB", {
-            day: "numeric",
-            month: "short",
-            year: "numeric",
-          })}
-        </div>
-        <p
-          dangerouslySetInnerHTML={{ __html: post.content }}
-          className={styles.content}
-        />
-        <div className={styles.buttons}>
-          <button
-            onClick={() => navigate(`/posts/${post.id}/edit`)}
-            className={styles.edit}
-          >
-            Edit <img src={edit} className={styles.editIcon} />
-          </button>
-          <button onClick={handleDelete} className={styles.delete}>
-            Delete <img src={bin} className={styles.bin} />
-          </button>
-        </div>
-      </article>
+          <p
+            dangerouslySetInnerHTML={{ __html: post.content }}
+            className={styles.content}
+          />
+          <div className={styles.buttons}>
+            <button
+              onClick={() => navigate(`/posts/${post.id}/edit`)}
+              className={styles.edit}
+            >
+              Edit <img src={edit} className={styles.editIcon} />
+            </button>
+            <button onClick={handleDelete} className={styles.delete}>
+              Delete <img src={bin} className={styles.bin} />
+            </button>
+          </div>
+        </article>
+      </div>
       <Comments postId={post.id} />
     </div>
   );

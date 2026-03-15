@@ -74,62 +74,65 @@ export function EditPost() {
 
   return (
     <>
-      <h1>Editing post!</h1>
-      <h3>Title :</h3>
-      <input
-        type="text"
-        name="title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
+      <section className={styles.wrapper}>
+        <h1 className={styles.header}>Edit post</h1>
+        <h2>Title :</h2>
+        <input
+          type="text"
+          name="title"
+          className={styles.titleInput}
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
 
-      <h3>Content : </h3>
-      <div className={styles.container}>
-        <header className={styles.toolbar}>
-          <button
-            onClick={() =>
-              editor.chain().focus().toggleHeading({ level: 1 }).run()
-            }
-            className={`${styles.toolbarButton} ${editor.isActive("heading", { level: 1 }) ? styles.activeButton : ""}`}
-          >
-            H1
-          </button>
-          <button
-            onClick={() => editor.chain().focus().toggleBold().run()}
-            className={`${styles.toolbarButton} ${editor.isActive("bold") ? styles.activeButton : ""}`}
-          >
-            B
-          </button>
-          <button
-            onClick={() => editor.chain().focus().toggleItalic().run()}
-            className={`${styles.toolbarButton} ${editor.isActive("italic") ? styles.activeButton : ""}`}
-          >
-            i
-          </button>
-          <button
-            onClick={() => editor.chain().focus().toggleBulletList().run()}
-            className={`${styles.toolbarButton} ${editor.isActive("bulletList") ? styles.activeButton : ""}`}
-          >
-            List
-          </button>
-          <button
-            onClick={() => editor.chain().focus().toggleBlockquote().run()}
-            className={`${styles.toolbarButton} ${editor.isActive("blockquote") ? styles.activeButton : ""}`}
-          >
-            “ Quote
-          </button>
-        </header>
+        <h2>Content : </h2>
+        <div className={styles.container}>
+          <header className={styles.toolbar}>
+            <button
+              onClick={() =>
+                editor.chain().focus().toggleHeading({ level: 1 }).run()
+              }
+              className={`${styles.toolbarButton} ${editor.isActive("heading", { level: 1 }) ? styles.activeButton : ""}`}
+            >
+              H1
+            </button>
+            <button
+              onClick={() => editor.chain().focus().toggleBold().run()}
+              className={`${styles.toolbarButton} ${editor.isActive("bold") ? styles.activeButton : ""}`}
+            >
+              B
+            </button>
+            <button
+              onClick={() => editor.chain().focus().toggleItalic().run()}
+              className={`${styles.toolbarButton} ${editor.isActive("italic") ? styles.activeButton : ""}`}
+            >
+              i
+            </button>
+            <button
+              onClick={() => editor.chain().focus().toggleBulletList().run()}
+              className={`${styles.toolbarButton} ${editor.isActive("bulletList") ? styles.activeButton : ""}`}
+            >
+              List
+            </button>
+            <button
+              onClick={() => editor.chain().focus().toggleBlockquote().run()}
+              className={`${styles.toolbarButton} ${editor.isActive("blockquote") ? styles.activeButton : ""}`}
+            >
+              “ Quote
+            </button>
+          </header>
 
-        <main>
-          <EditorContent editor={editor} />
-        </main>
+          <main>
+            <EditorContent editor={editor} />
+          </main>
 
-        <footer className={styles.footer}>
-          <button onClick={handleEdit} className={styles.postButton}>
-            Edit
-          </button>
-        </footer>
-      </div>
+          <footer className={styles.footer}>
+            <button onClick={handleEdit} className={styles.postButton}>
+              Edit
+            </button>
+          </footer>
+        </div>
+      </section>
     </>
   );
 }

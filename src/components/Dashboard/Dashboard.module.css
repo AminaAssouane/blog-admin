@@ -1,11 +1,11 @@
 .container {
   display: grid;
   grid-template-areas:
-    "navBar sideBar"
+    "navBar navBar"
     "main sideBar"
     "footer footer";
   grid-template-columns: 1fr 250px;
-  grid-template-rows: 200px auto auto;
+  grid-template-rows: 150px auto 150px;
   min-height: 100vh;
 }
 
