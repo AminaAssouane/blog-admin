@@ -1,0 +1,11 @@
+.delete {
+  background-color: maroon;
+}
+
+.delete:hover {
+  background-color: rgb(93, 3, 3);
+}
+
+.bin {
+  height: 17px;
+}

@@ -1,5 +1,7 @@
+import styles from "./Comments.module.css";
 import { useEffect, useState } from "react";
 import { deleteComment } from "../../../utils/deleteComment";
+import bin from "../../../assets/icons/bin.svg";
 
 export function Comments({ postId }) {
   const [comments, setComments] = useState([]);
@@ -21,8 +23,15 @@ export function Comments({ postId }) {
 
   async function handleDelete(commentId) {
     try {
-      await deleteComment(postId, commentId);
-      setComments((prev) => prev.filter((comment) => comment.id !== commentId));
+      const isConfirmed = window.confirm(
+        "Are you sure you want to delete this post? This action cannot be undone.",
+      );
+      if (isConfirmed) {
+        await deleteComment(postId, commentId);
+        setComments((prev) =>
+          prev.filter((comment) => comment.id !== commentId),
+        );
+      }
     } catch (error) {
       alert("You are not authorized to delete this comment.", error);
     }
@@ -35,7 +44,12 @@ export function Comments({ postId }) {
         <section key={comment.id}>
           <div>{comment.username}</div>
           <p>{comment.content}</p>
-          <button onClick={() => handleDelete(comment.id)}>Delete</button>
+          <button
+            onClick={() => handleDelete(comment.id)}
+            className={styles.delete}
+          >
+            Delete <img src={bin} alt="bin" className={styles.bin} />
+          </button>
         </section>
       ))}
     </>
