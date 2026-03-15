@@ -29,3 +29,29 @@
 ul {
   list-style-type: none;
 }
+
+button {
+  all: unset;
+  background-color: #955eb4;
+  color: #e6e7e6;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  background-color: #7a4d95;
+}
+
+a {
+  text-decoration: none;
+  font-size: 1.3rem;
+  color: #e6e7e6;
+}
+
+a:hover {
+  text-decoration: underline;
+}

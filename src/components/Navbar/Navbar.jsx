@@ -13,7 +13,7 @@ export function Navbar({ className }) {
               Amina's <span className="violet">blog</span>
             </div>
           </h1>
-          <div>
+          <div className={styles.welcome}>
             Welcome, <span className="violet">admin</span>!
           </div>
         </header>
