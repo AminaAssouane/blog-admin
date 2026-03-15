@@ -26,20 +26,22 @@ export function PublishedPosts() {
 
   return (
     <>
-      <h1 className={styles.header}>Published Posts</h1>
-      {posts.map((post) => (
-        <div key={post.id} className={styles.post}>
-          <div className={styles.title}>{post.title}</div>
-          <div className={styles.buttons}>
-            <button onClick={() => togglePublish(post, setPosts, true)}>
-              Unpublish
-            </button>
-            <Link to={`/posts/${post.id}`}>
-              <button>Details →</button>
-            </Link>
+      <div className={styles.container}>
+        <h1 className={styles.header}>Published Posts</h1>
+        {posts.map((post) => (
+          <div key={post.id} className={styles.post}>
+            <div className={styles.title}>{post.title}</div>
+            <div className={styles.buttons}>
+              <button onClick={() => togglePublish(post, setPosts, true)}>
+                Unpublish
+              </button>
+              <Link to={`/posts/${post.id}`}>
+                <button>Details →</button>
+              </Link>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </>
   );
 }

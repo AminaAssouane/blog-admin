@@ -47,6 +47,13 @@ export function Post() {
           </div>
         )}
         <h1 className={styles.title}>{post.title}</h1>
+        <div className={styles.date}>
+          {new Date(post.createdAt).toLocaleDateString("en-GB", {
+            day: "numeric",
+            month: "short",
+            year: "numeric",
+          })}
+        </div>
         <p
           dangerouslySetInnerHTML={{ __html: post.content }}
           className={styles.content}

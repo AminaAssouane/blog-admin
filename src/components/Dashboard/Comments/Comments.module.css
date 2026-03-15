@@ -6,7 +6,7 @@
 .commentsContainer {
   width: 80%;
   padding: 30px 0px 0px 0px;
-  margin: 0 auto;
+  margin: 0 auto 30px auto;
 }
 
 .title {
@@ -27,9 +27,42 @@
   margin-bottom: 30px;
 }
 
+/* The date and name */
+
+.commentInfo {
+  display: flex;
+  align-items: center;
+}
+
+.commentInfo span {
+  width: fit-content;
+}
+
+.commentInfo span:first-child {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+  color: var(--color-secondary);
+}
+
+.commentInfo span:last-child {
+  color: #98d8b8;
+  background-color: rgba(129, 230, 217, 0.16);
+
+  display: inline-block;
+  width: max-content;
+  padding: 4px 12px;
+  border-radius: 999px;
+
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 .delete {
   background-color: maroon;
   display: flex;
+  align-self: flex-end;
   align-items: center;
   gap: 8px;
 }

@@ -45,7 +45,16 @@ export function Comments({ postId }) {
           {comments.length === 0 && <p> No comments yet...</p>}
           {comments.map((comment) => (
             <section key={comment.id} className={styles.comment}>
-              <div className="violet">{comment.username}</div>
+              <div className={styles.commentInfo}>
+                <span>{comment.username}</span>{" "}
+                <span>
+                  {new Date(comment.createdAt).toLocaleDateString("en-GB", {
+                    day: "numeric",
+                    month: "short",
+                    year: "numeric",
+                  })}
+                </span>
+              </div>
               <p>{comment.content}</p>
               <button
                 onClick={() => handleDelete(comment.id)}

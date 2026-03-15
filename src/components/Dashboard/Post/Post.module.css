@@ -40,6 +40,22 @@ article.post .content {
   color: #b4b4b4;
 }
 
+.date {
+  color: #98d8b8;
+  background-color: rgba(129, 230, 217, 0.16);
+
+  display: inline-block;
+  width: max-content;
+  padding: 4px 12px;
+  border-radius: 999px;
+
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 120px;
+}
+
 /* Buttons */
 .buttons {
   display: flex;
