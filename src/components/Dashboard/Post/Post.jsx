@@ -39,21 +39,31 @@ export function Post() {
   }
 
   return (
-    <article>
-      <h3>{post.title}</h3>
-      <div dangerouslySetInnerHTML={{ __html: post.content }} />
-      <div className={styles.buttons}>
-        <button
-          onClick={() => navigate(`/posts/${post.id}/edit`)}
-          className={styles.edit}
-        >
-          Edit <img src={edit} alt="edit" className={styles.editIcon} />
-        </button>
-        <button onClick={handleDelete} className={styles.delete}>
-          Delete <img src={bin} alt="bin" className={styles.bin} />
-        </button>
-      </div>
+    <main className={styles.postPageMain}>
+      <article className={styles.post}>
+        {post.image && (
+          <div className={styles.image}>
+            <img src={post.image} alt={post.title} />
+          </div>
+        )}
+        <h1 className={styles.title}>{post.title}</h1>
+        <p
+          dangerouslySetInnerHTML={{ __html: post.content }}
+          className={styles.content}
+        />
+        <div className={styles.buttons}>
+          <button
+            onClick={() => navigate(`/posts/${post.id}/edit`)}
+            className={styles.edit}
+          >
+            Edit <img src={edit} className={styles.editIcon} />
+          </button>
+          <button onClick={handleDelete} className={styles.delete}>
+            Delete <img src={bin} className={styles.bin} />
+          </button>
+        </div>
+      </article>
       <Comments postId={post.id} />
-    </article>
+    </main>
   );
 }

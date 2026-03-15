@@ -1,9 +1,59 @@
+.postPageMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+article.post {
+  margin: 0 auto 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+article.post .image {
+  width: 80%;
+  height: 300px;
+  margin: 0 auto;
+
+  border-radius: 0 0 16px 16px;
+  overflow: hidden;
+}
+
+article.post .image img {
+  width: 100%;
+  object-fit: cover;
+}
+
+article.post h1 {
+  margin: 0 auto;
+  font-size: 2.5rem;
+  width: 80%;
+}
+
+article.post .content {
+  width: 80%;
+  margin: 0 auto;
+  white-space: pre-wrap;
+  font-size: 1.2em;
+  color: #b4b4b4;
+}
+
+/* Buttons */
 .buttons {
   display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .delete {
   background-color: maroon;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .delete:hover {
@@ -22,10 +72,4 @@
 
 .bin {
   height: 17px;
-}
-
-.delete {
-  display: flex;
-  align-items: center;
-  gap: 8px;
 }
