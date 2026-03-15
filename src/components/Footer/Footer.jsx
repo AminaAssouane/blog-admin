@@ -2,9 +2,9 @@ import styles from "./Footer.module.css";
 import github from "../../assets/icons/github.svg";
 import linkedin from "../../assets/icons/linkedin.svg";
 
-export function Footer() {
+export function Footer({ className }) {
   return (
-    <footer className={styles.footer}>
+    <footer className={className}>
       <div>Made by Amina Assouane</div>
       <div className={styles.logos}>
         <a href="https://github.com/AminaAssouane" target="_blank">

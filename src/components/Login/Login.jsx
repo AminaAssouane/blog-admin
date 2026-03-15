@@ -1,6 +1,8 @@
 import styles from "./Login.module.css";
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import login from "../../assets/icons/login.svg";
+import user from "../../assets/icons/user.svg";
 
 export function Login() {
   const [username, setUsername] = useState("");
@@ -30,32 +32,39 @@ export function Login() {
 
   return (
     <>
-      <main>
-        <h1>Login</h1>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="username">Username : </label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => {
-              setUsername(e.target.value);
-            }}
-            required
-          />
-          <label htmlFor="password">Password : </label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-            required
-          />
-          <button type="submit">Login</button>
-        </form>
+      <main className={styles.loginPage}>
+        <div className={styles.loginContainer}>
+          <h1 className={styles.title}>Login</h1>
+          <form onSubmit={handleSubmit}>
+            <div className={styles.credentials}>
+              <input
+                type="text"
+                id={styles.username}
+                placeholder="Username"
+                value={username}
+                onChange={(e) => {
+                  setUsername(e.target.value);
+                }}
+                required
+              />
+
+              <input
+                type="password"
+                name="password"
+                id={styles.password}
+                placeholder="Password"
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+                required
+              />
+            </div>
+            <button type="submit" className={styles.submit}>
+              Login <img src={login} alt="login" className={styles.loginIcon} />
+            </button>
+          </form>
+        </div>
       </main>
     </>
   );

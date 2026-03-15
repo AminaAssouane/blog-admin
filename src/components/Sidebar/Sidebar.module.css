@@ -4,9 +4,31 @@
   flex-direction: column;
   align-items: center;
   gap: 50px;
-  border-left: 1px solid var(--color-border);
 }
 
 button {
-  width: 70px;
+  width: 100%;
+}
+
+.create {
+  height: 20px;
+}
+
+a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logout {
+  height: 30px;
+}
+
+.logoutBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 1.1rem;
+  width: 100px;
 }

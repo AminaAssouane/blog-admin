@@ -1,19 +1,77 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.loginPage {
+  background-color: var(--color-background);
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-main {
+.loginContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 50px;
 
-  height: 100vh;
+  background-color: #353235;
+  border: 1px solid var(--color-border);
+  width: 300px;
+  height: 400px;
+  border-radius: 10px;
+  transition: 0.2 ease;
+}
+
+.loginContainer:hover {
+  border: 1px solid var(--color-secondary);
 }
 
 form {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.credentials {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+}
+
+.submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 50px;
+}
+
+.loginIcon {
+  height: 20px;
+}
+
+input {
+  height: 35px;
+  width: 200px;
+  padding: 10px 30px;
+  border-radius: 8px;
+}
+
+#username {
+  background-image: url("../../assets/icons/user.svg");
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 16px 16px;
+}
+
+#password {
+  background-image: url("../../assets/icons/lock.svg");
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 16px 16px;
 }

@@ -1,0 +1,31 @@
+.buttons {
+  display: flex;
+}
+
+.delete {
+  background-color: maroon;
+}
+
+.delete:hover {
+  background-color: rgb(93, 3, 3);
+}
+
+.editIcon {
+  height: 17px;
+}
+
+.edit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bin {
+  height: 17px;
+}
+
+.delete {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

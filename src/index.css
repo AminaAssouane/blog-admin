@@ -38,6 +38,7 @@ button {
   border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
+  text-align: center;
   transition: 0.2s ease;
 }
 

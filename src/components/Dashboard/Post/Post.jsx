@@ -3,6 +3,8 @@ import { useParams, useNavigate } from "react-router";
 import { useState, useEffect } from "react";
 import { deletePost } from "../../../utils/deletePost";
 import { Comments } from "../Comments/Comments";
+import edit from "../../../assets/icons/create.svg";
+import bin from "../../../assets/icons/bin.svg";
 
 export function Post() {
   const { postId } = useParams();
@@ -40,10 +42,17 @@ export function Post() {
     <article>
       <h3>{post.title}</h3>
       <div dangerouslySetInnerHTML={{ __html: post.content }} />
-      <button onClick={() => navigate(`/posts/${post.id}/edit`)}>Edit</button>
-      <button onClick={handleDelete} className={styles.delete}>
-        Delete
-      </button>
+      <div className={styles.buttons}>
+        <button
+          onClick={() => navigate(`/posts/${post.id}/edit`)}
+          className={styles.edit}
+        >
+          Edit <img src={edit} alt="edit" className={styles.editIcon} />
+        </button>
+        <button onClick={handleDelete} className={styles.delete}>
+          Delete <img src={bin} alt="bin" className={styles.bin} />
+        </button>
+      </div>
       <Comments postId={post.id} />
     </article>
   );

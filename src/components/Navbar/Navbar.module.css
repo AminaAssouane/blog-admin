@@ -1,5 +1,5 @@
 .headerWrapper {
-  padding: 50px;
+  padding: 50px 100px;
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -22,6 +22,7 @@
 
 .welcome {
   font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .navBar {

@@ -1,3 +1,4 @@
+import styles from "./UnpublishedPosts.module.css";
 import { useState, useEffect } from "react";
 import { togglePublish } from "../../../utils/togglePublish";
 import { Link } from "react-router";
@@ -28,16 +29,18 @@ export function UnpublishedPosts() {
 
   return (
     <>
-      <h1>Unpublished Posts</h1>
+      <h1 className={styles.header}>Unpublished Posts</h1>
       {posts.map((post) => (
-        <div key={post.id}>
-          <div>{post.title}</div>
-          <button onClick={() => togglePublish(post, setPosts, true)}>
-            Publish
-          </button>
-          <Link to={`/posts/${post.id}`}>
-            <button>Details</button>
-          </Link>
+        <div key={post.id} className={styles.post}>
+          <div className={styles.title}>{post.title}</div>
+          <div className={styles.buttons}>
+            <button onClick={() => togglePublish(post, setPosts, true)}>
+              Publish
+            </button>
+            <Link to={`/posts/${post.id}`}>
+              <button>Details →</button>
+            </Link>
+          </div>
         </div>
       ))}
     </>
