@@ -39,7 +39,7 @@ export function Post() {
   }
 
   return (
-    <main className={styles.postPageMain}>
+    <div className={styles.postPageMain}>
       <article className={styles.post}>
         {post.image && (
           <div className={styles.image}>
@@ -64,6 +64,6 @@ export function Post() {
         </div>
       </article>
       <Comments postId={post.id} />
-    </main>
+    </div>
   );
 }

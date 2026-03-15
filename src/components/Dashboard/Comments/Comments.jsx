@@ -39,19 +39,24 @@ export function Comments({ postId }) {
 
   return (
     <>
-      <h1>Comments : {comments.length}</h1>
-      {comments.map((comment) => (
-        <section key={comment.id}>
-          <div>{comment.username}</div>
-          <p>{comment.content}</p>
-          <button
-            onClick={() => handleDelete(comment.id)}
-            className={styles.delete}
-          >
-            Delete <img src={bin} alt="bin" className={styles.bin} />
-          </button>
+      <div className={styles.commentsWrapper}>
+        <section className={styles.commentsContainer}>
+          <h1 className={styles.title}>Comments ({comments.length})</h1>
+          {comments.length === 0 && <p> No comments yet...</p>}
+          {comments.map((comment) => (
+            <section key={comment.id} className={styles.comment}>
+              <div className="violet">{comment.username}</div>
+              <p>{comment.content}</p>
+              <button
+                onClick={() => handleDelete(comment.id)}
+                className={styles.delete}
+              >
+                Delete <img src={bin} alt="bin" className={styles.bin} />
+              </button>
+            </section>
+          ))}
         </section>
-      ))}
+      </div>
     </>
   );
 }
