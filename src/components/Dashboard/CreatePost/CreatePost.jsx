@@ -7,6 +7,7 @@ import styles from "./CreatePost.module.css";
 
 export function CreatePost() {
   const [title, setTitle] = useState("");
+  const [image, setImage] = useState(null);
   const navigate = useNavigate();
   const editor = useEditor({
     extensions: [
@@ -23,18 +24,21 @@ export function CreatePost() {
 
   async function handlePost() {
     const html = editor.getHTML();
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("content", html);
+
+    if (image) {
+      formData.append("image", image);
+    }
 
     try {
       const response = await fetch("http://localhost:3000/posts", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
-        body: JSON.stringify({
-          title: title,
-          content: html,
-        }),
+        body: formData,
       });
       if (!response.ok) throw new Error("Failed to create post");
       const data = await response.json();
@@ -42,6 +46,7 @@ export function CreatePost() {
 
       // reset form
       setTitle("");
+      setImage(null);
       editor.commands.setContent("");
       navigate("/");
     } catch (error) {
@@ -60,6 +65,12 @@ export function CreatePost() {
           className={styles.titleInput}
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+        />
+        <h2>Image :</h2>
+        <input
+          type="file"
+          accept="image/*"
+          onChange={(e) => setImage(e.target.files[0])}
         />
         <h2>Content : </h2>
         <div className={styles.container}>
